@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, Suspense } from 'react'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 import Modal from '../../components/UI/Modal/Modal'
@@ -26,6 +26,12 @@ class BurgerBuilder extends Component {
   }
 
   addIngredientHandler = (type) => {
+    // non-related------------------
+    var x = { one: 1, two: 2 };
+    var y = x;
+    y.one = 100;
+    console.log(y instanceof Object)
+    // -----------------------------
     const oldCount = this.state.ingredients[type];
     const updatedCount = oldCount + 1;
     const updatedIngredients = {
